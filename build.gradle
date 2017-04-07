@@ -1,6 +1,12 @@
 buildscript {
     repositories {
-        jcenter()
+        maven { url "http://maven.oa.com/nexus/content/repositories/android" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/jcenter" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/afollestad" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/thirdparty/" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/fabricio" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/jitpack.io" }
+//        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
@@ -9,10 +15,13 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'https://maven.fabric.io/public' }
-        mavenCentral()
-        jcenter()
-        maven { url "https://jitpack.io" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/android" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/jcenter" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/thirdparty/" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/fabricio" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/jitpack.io" }
+        maven { url "http://maven.oa.com/nexus/content/repositories/afollestad" }
+//        jcenter()
     }
 }
 

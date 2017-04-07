@@ -111,8 +111,9 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         unbinder = ButterKnife.bind(this);
-        Inquiry.newInstance(this, null)
-                .build();
+        Inquiry.init(this);
+//        Inquiry.newInstance(this, null)
+//                .build();
 
         toolbar.inflateMenu(R.menu.menu_main);
         toolbar.setOnMenuItemClickListener(item -> {
@@ -201,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements
             return;
         }
 
-        Inquiry.get(this)
+        Inquiry.get()
                 .selectFrom(Uri.parse("content://media/external/images/media"), Photo.class)
                 .sort("datetaken DESC")
                 .where("_data IS NOT NULL")
@@ -230,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override protected void onPause() {
         super.onPause();
         if (isFinishing())
-            Inquiry.destroy(this);
+            Inquiry.deinit();
     }
 
     public void clearSelection() {
